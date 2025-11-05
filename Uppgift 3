@@ -1,0 +1,52 @@
+package com.studentCode;
+
+public class A3 {
+    public static void main(String[] args) {
+     
+        int nrOfMatches = Integer.parseInt(args[0]);
+        double betHome = Double.parseDouble(args[1]);
+        double betAway = Double.parseDouble(args[2]);
+
+        int awayWins = 0;
+        int awayTies = 0;
+        int awayLoses = 0;
+        int homeWins = 0;
+        int homeTies = 0;
+        int homeLoses = 0;
+        double balance = 0;
+
+        
+        for (int i = 1; i <= nrOfMatches; i++) {
+            double random = Math.random(); 
+
+            if (i % 2 == 1) {  // Home match (odd match days)
+                if (random < 0.66) {  
+                    homeWins++;
+                    balance += 1.5 * betHome; 
+                } else if (random < 0.90) { 
+                    homeTies++;
+                    balance -= betHome; 
+                } else {  // Home loss
+                    homeLoses++;
+                    balance -= betHome;
+                }
+            } else { 
+                if (random < 0.30) {  
+                    awayWins++;
+                    balance += 3.25 * betAway; 
+                } else if (random < 0.60) { 
+                    awayTies++;
+                    balance -= betAway;  
+                } else {  
+                    awayLoses++;
+                    balance -= betAway; 
+                }
+            }
+        }
+
+        // WARNING! Do not change these lines. Use exactly these strings as your output.
+        System.out.println("Home: " + homeWins + " wins, " + homeTies + " ties, " + homeLoses + " loses");
+        System.out.println("Away: " + awayWins + " wins, " + awayTies + " ties, " + awayLoses + " loses");
+        System.out.printf("Balance: SEK %.2f\n", balance);  // Print balance with two decimal places
+    }
+}
