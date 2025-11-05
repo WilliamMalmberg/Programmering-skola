@@ -22,7 +22,7 @@ public class A3 {
             if (i % 2 == 1) {  // Home match (odd match days)
                 if (random < 0.66) {  
                     homeWins++;
-                    balance += 1.5 * betHome; 
+                    balance += 0.5 * betHome; 
                 } else if (random < 0.90) { 
                     homeTies++;
                     balance -= betHome; 
