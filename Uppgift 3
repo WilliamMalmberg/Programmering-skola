@@ -33,7 +33,7 @@ public class A3 {
             } else { 
                 if (random < 0.30) {  
                     awayWins++;
-                    balance += 3.25 * betAway; 
+                    balance += 2.25 * betAway; 
                 } else if (random < 0.60) { 
                     awayTies++;
                     balance -= betAway;  
