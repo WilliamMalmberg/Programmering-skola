@@ -6,25 +6,42 @@ public class A2 {
 		String firstName = args[0].toLowerCase().replace('ö', 'o').replace('ä', 'a').replace('å', 'a');
 		String lastName = args[1].toLowerCase().replace('ö', 'o').replace('ä', 'a').replace('å', 'a');
 		String admissionYear = args[2].toLowerCase();
-
-		// Modify and complete the following code
-                char fb1 = firstName.charAt(0);
-                char fb2 = firstName.charAt(1);
-                char fb3 = firstName.charAt(2);
-                char lb1 = lastName.charAt(0);
-                char lb2 = lastName.charAt(1);
-                char lb3 = lastName.charAt(2);
-                char y1 = admissionYear.charAt(2);
-                char y2 = admissionYear.charAt(3);
+                String firstNameTemp = "";
+                String lastNameTemp = "";
+                String Year = "";
+           
+		if(firstName.length() > 2 && lastName.length() > 2 && admissionYear.length() == 4){
+              
+           
 
 
-		String userName = "" + fb1 + fb2 + fb3 + lb1 + lb2 + lb3 + kb1 + kb2;
-                userName = userName + y1 + y2;
+                for(int i = 0; i < 3; i++){
+                 firstNameTemp += firstName.charAt(i);
+                }
+
+
+                for(int i = 0; i < 3; i++){
+                lastNameTemp += lastName.charAt(i);
+                }
+                for (int i = 2; i < 4; i++) {
+                
+                Year += admissionYear.charAt(i);
+                }
+
+ 
+		
+                String userName = "" + firstNameTemp + lastNameTemp + Year;
+             
 		String email = userName + "@student.hh.se";
+              
 
 		// WARNING! Do not change these lines. Use exactly these strings as your output.
 
 		System.out.println("Username: " + userName);
 		System.out.println("E-mail: " + email);
-	}
+               }  else {System.out.println("Names need atleast 3 letters, and the year has to be 4 digits");
+               }
+
+        
+     }
 }
