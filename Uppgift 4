@@ -1,0 +1,29 @@
+if (base10 > 0) {
+            // Array to store digits (max 32 digits for int)
+            char[] digits = new char[32];
+            int index = 0;
+
+            int counter = base10; // copy of base10 to work on
+
+            // Convert base10 to base 'base'
+            while (counter > 0) {
+                int remainder = counter % base;
+                counter = counter / base;
+
+                if (remainder < 10) {
+                    digits[index] = (char) ('0' + remainder); // digits 0-9
+                } else {
+                    digits[index] = (char) ('A' + (remainder - 10)); // letters A-Z
+                }
+
+                index++;
+            }
+
+            // Build result string manually (reverse order)
+            String res = "";
+            for (int i = index - 1; i >= 0; i--) {
+                res = res + digits[i]; // append char to string
+            }
+
+            // WARNING! Do not change these lines. Use exactly these strings as your output.
+            System.out.println(base10 + " in base-10 is " + res + " in base-" + base);
